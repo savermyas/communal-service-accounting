@@ -5,7 +5,7 @@ class ZHK3ParserTestCase(TestCase):
     text_data = ""
 
     def setUp(self):
-        with open('tests/data/zhk3_meters.html', 'r') as myfile:
+        with open('tests/data/zhk3_meters.html', 'r', encoding='utf-8') as myfile:
             self.text_data = myfile.read()
 
     def test_parse(self):
