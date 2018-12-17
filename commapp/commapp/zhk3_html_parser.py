@@ -1,8 +1,8 @@
 from html.parser import HTMLParser
 from commapp.counter import Counter
 
-class Zhk3HTMLParser(HTMLParser):
 
+class Zhk3HTMLParser(HTMLParser):
     curr_counter = Counter()
     counters = []
     tag_stack = []
@@ -13,8 +13,10 @@ class Zhk3HTMLParser(HTMLParser):
     def handle_endtag(self, tag):
         (open_tag, open_attrs) = self.tag_stack.pop()
         if tag == "a":
-            (prev_tag, prev_attrs) = self.tag_stack[len(self.tag_stack)-1]
-            if prev_tag == "td" and prev_attrs and "center meter-history" in prev_attrs[0]:
+            (prev_tag, prev_attrs) = self.tag_stack[len(self.tag_stack) - 1]
+            if prev_tag == "td" \
+                    and prev_attrs \
+                    and "center meter-history" in prev_attrs[0]:
                 self.curr_counter.info = open_attrs[0][1]
                 self.curr_counter.id = open_attrs[0][1].split("=").pop()
         if tag == "td":
@@ -27,7 +29,7 @@ class Zhk3HTMLParser(HTMLParser):
 
     def handle_data(self, data):
         if self.tag_stack:
-            (tag, attrs) = self.tag_stack[len(self.tag_stack)-1]
+            (tag, attrs) = self.tag_stack[len(self.tag_stack) - 1]
             if attrs:
                 if "meter-name" in attrs[0]:
                     self.curr_counter.name = data.strip()
