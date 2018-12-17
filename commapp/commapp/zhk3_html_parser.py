@@ -14,7 +14,6 @@ class Zhk3HTMLParser(HTMLParser):
                 if "meter-name" in attrs[0]:
                     self.curr_counter = Counter()
 
-
     def handle_endtag(self, tag):
         (open_tag, open_attrs) = self.tag_stack.pop()
         if tag == "a":
@@ -35,7 +34,7 @@ class Zhk3HTMLParser(HTMLParser):
             (tag, attrs) = self.tag_stack[-1]
             if attrs and "class" in attrs[0]:
                 if "meter-name" in attrs[0]:
-                    self.curr_counter.name = data.replace(":","").strip()
+                    self.curr_counter.name = data.replace(":", "").strip()
                 elif "cost" in attrs[0]:
                     if float(self.curr_counter.previous_value) < 0:
                         self.curr_counter.previous_value = data.strip()

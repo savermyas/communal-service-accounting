@@ -6,3 +6,4 @@ class Counter(object):
         self.previous_value = -1
         self.current_value = -1
 
+
