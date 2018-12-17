@@ -1,7 +1,7 @@
 from abc import abstractmethod
 
 
-class ServiceProvider:
+class ServiceProvider(object):
     name = "ProviderName"
     url = "http://provider.com"
     counters = []
