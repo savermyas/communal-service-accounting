@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.template import Context, Template
 from commapp.apartment import Apartment
 from commapp.counter import Counter
 from commapp.serviceprovider import ServiceProvider
@@ -49,10 +50,18 @@ class ApartmentTemplateTestCase(TestCase):
         )
     ]
 
+    def setUp(self):
+        with open('tests/data/apartments.html',
+                  'r', encoding='utf-8') as myfile:
+            self.template_to_render = Template(myfile.read())
+
     def test_parse(self):
+
         flat_sp = []
         for apt in self.apartments:
             for sp in apt.service_providers:
                 flat_sp.append(sp)
 
-        print([vars(sp) for sp in flat_sp])
+        #print([vars(sp) for sp in flat_sp])
+        context = Context({"apartments": self.apartments})
+        print(self.template_to_render.render(context))
