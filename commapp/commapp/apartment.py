@@ -1,3 +1,4 @@
 class Apartment(object):
-    service_providers = []
-    counters = []
+    def __init__(self,
+                 service_providers=[]):
+        self.service_providers = service_providers
