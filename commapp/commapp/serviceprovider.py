@@ -4,9 +4,9 @@ from abc import abstractmethod
 class ServiceProvider(object):
 
     def __init__(self,
-                 name = "ProviderName",
-                 url = "http://provider.com",
-                 counters = []):
+                 name="ProviderName",
+                 url="http://provider.com",
+                 counters=[]):
         self.name = name
         self.url = url
         self.counters = counters
