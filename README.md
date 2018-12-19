@@ -18,6 +18,7 @@ pip install -r requirements.txt
 # Run tests
 ```
 python -m flake8 tests commapp
+python -m pylint tests commapp
 python commapp/manage.py test
 ```
 
