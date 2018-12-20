@@ -1,8 +1,10 @@
 {% if apartments %}
 <ul>
     {% for apt in apartments %}
-        {% for sp in apt.service_providers %}
-        <li>{{ sp.name }}</li>
+        {{ apt.name }}
+        {{ apt.address }}
+        {% for sp in apt.service_providers.all %}
+        <li>{{ sp.entity.name }}</li>
         {% endfor %}
     {% endfor %}
 </ul>

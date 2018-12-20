@@ -6,6 +6,7 @@ from commapp.models import ServiceProvider
 from commapp.models import Apartment
 from commapp.models import User
 
+
 class DBSetupTestCase(TestCase):
 
     def setUp(self):
@@ -47,9 +48,9 @@ class DBSetupTestCase(TestCase):
 
         for x in range(0, 10):
             counter = Counter(name="{x}{x}{x}{x}{x}{x}".format(x=x),
-                               info="Counter #{}".format(x),
-                               previous_value=x,
-                               current_value=2*x+10)
+                              info="Counter #{}".format(x),
+                              previous_value=x,
+                              current_value=2 * x + 10)
             counter.save()
             if x % 2 == 0:
                 service_provider_1.counters.add(counter)
@@ -68,6 +69,3 @@ class DBSetupTestCase(TestCase):
         user.save()
         user.apartments.add(apartment)
         user.save()
-
-
-

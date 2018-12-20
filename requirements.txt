@@ -1,3 +1,4 @@
+requests
 django
 flake8
 pylint
