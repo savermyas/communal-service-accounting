@@ -1,13 +1,15 @@
-from tests.test_db_setup import DBSetupTestCase
 from commapp.models import User
 from commapp.models import UserEntity
 from commapp.models import Counter
 from commapp.models import ServiceProviderEntity
 from commapp.models import ServiceProvider
 from commapp.models import Apartment
+from django.test import TestCase
 
 
-class ModelTestCase(DBSetupTestCase):
+class ModelTestCase(TestCase):
+
+    fixtures = ['fixtures/test.json']
 
     def test_user_entity(self):
         assert [user.name for user in UserEntity.objects.all()] == ["testuser"]

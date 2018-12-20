@@ -1,9 +1,11 @@
 from django.template import Context, Template
-from tests.test_db_setup import DBSetupTestCase
 from commapp.models import Apartment
+from django.test import TestCase
 
 
-class ApartmentTemplateTestCase(DBSetupTestCase):
+class ApartmentTemplateTestCase(TestCase):
+
+    fixtures = ['fixtures/test.json']
 
     def test_parse(self):
         with open('tests/data/apartments.html',
