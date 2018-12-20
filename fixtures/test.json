@@ -1,0 +1,179 @@
+[
+  {
+    "model": "commapp.serviceproviderentity",
+    "pk": 1,
+    "fields": {
+      "name": "Gorvodokanal",
+      "url": "http://gvc.ru"
+    }
+  },
+  {
+    "model": "commapp.serviceproviderentity",
+    "pk": 2,
+    "fields": {
+      "name": "Pertoelectrosbyt",
+      "url": "http://pes.spb.ru"
+    }
+  },
+  {
+    "model": "commapp.userentity",
+    "pk": 1,
+    "fields": {
+      "name": "testuser"
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 1,
+    "fields": {
+      "name": "000000",
+      "info": "Counter #0",
+      "previous_value": 0.0,
+      "current_value": 10.0
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 2,
+    "fields": {
+      "name": "111111",
+      "info": "Counter #1",
+      "previous_value": 1.0,
+      "current_value": 12.0
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 3,
+    "fields": {
+      "name": "222222",
+      "info": "Counter #2",
+      "previous_value": 2.0,
+      "current_value": 14.0
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 4,
+    "fields": {
+      "name": "333333",
+      "info": "Counter #3",
+      "previous_value": 3.0,
+      "current_value": 16.0
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 5,
+    "fields": {
+      "name": "444444",
+      "info": "Counter #4",
+      "previous_value": 4.0,
+      "current_value": 18.0
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 6,
+    "fields": {
+      "name": "555555",
+      "info": "Counter #5",
+      "previous_value": 5.0,
+      "current_value": 20.0
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 7,
+    "fields": {
+      "name": "666666",
+      "info": "Counter #6",
+      "previous_value": 6.0,
+      "current_value": 22.0
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 8,
+    "fields": {
+      "name": "777777",
+      "info": "Counter #7",
+      "previous_value": 7.0,
+      "current_value": 24.0
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 9,
+    "fields": {
+      "name": "888888",
+      "info": "Counter #8",
+      "previous_value": 8.0,
+      "current_value": 26.0
+    }
+  },
+  {
+    "model": "commapp.counter",
+    "pk": 10,
+    "fields": {
+      "name": "999999",
+      "info": "Counter #9",
+      "previous_value": 9.0,
+      "current_value": 28.0
+    }
+  },
+  {
+    "model": "commapp.serviceprovider",
+    "pk": 1,
+    "fields": {
+      "entity": 1,
+      "username": "water1",
+      "password": "mypassw#NW",
+      "counters": [
+        1,
+        3,
+        5,
+        7,
+        9
+      ]
+    }
+  },
+  {
+    "model": "commapp.serviceprovider",
+    "pk": 2,
+    "fields": {
+      "entity": 2,
+      "username": "pes",
+      "password": "pespassWwd",
+      "counters": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ]
+    }
+  },
+  {
+    "model": "commapp.apartment",
+    "pk": 1,
+    "fields": {
+      "name": "Apartment for rent",
+      "address": "Pushkina st., Kolotushkina building",
+      "service_providers": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "model": "commapp.user",
+    "pk": 1,
+    "fields": {
+      "entity": 1,
+      "apartments": [
+        1
+      ]
+    }
+  }
+]
