@@ -18,8 +18,8 @@ class Counter(models.Model):
 
 
 class ServiceProvider(models.Model):
-    service_provider = models.ForeignKey(ServiceProviderEntity,
-                                         on_delete=models.CASCADE)
+    entity = models.ForeignKey(ServiceProviderEntity,
+                               on_delete=models.CASCADE)
     counters = models.ManyToManyField(Counter)
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
@@ -32,5 +32,5 @@ class Apartment(models.Model):
 
 
 class User(models.Model):
-    user = models.ForeignKey(UserEntity, on_delete=models.CASCADE)
+    entity = models.ForeignKey(UserEntity, on_delete=models.CASCADE)
     apartments = models.ManyToManyField(Apartment)

@@ -1,4 +1,5 @@
 from tests.test_db_setup import DBSetupTestCase
+from commapp.models import User
 from commapp.models import UserEntity
 from commapp.models import Counter
 from commapp.models import ServiceProviderEntity
@@ -24,6 +25,9 @@ class ModelTestCase(DBSetupTestCase):
                ["Gorvodokanal", "Pertoelectrosbyt"]
 
     def test_service_providers(self):
-        assert [service_provider.name for service_provider
-                in ServiceProviderEntity.objects.all()] == \
-               ["Gorvodokanal", "Pertoelectrosbyt"]
+        assert [(service_provider.username, service_provider.password) for service_provider
+                in ServiceProvider.objects.all()] == \
+               [('water1', 'mypassw#NW'), ('pes', 'pespassWwd')]
+
+    def test_user(self):
+        assert [len(user.apartments.all()) for user in User.objects.all()] == [1]

@@ -23,13 +23,13 @@ class DBSetupTestCase(TestCase):
         service_provider_1 = ServiceProvider(
             username="water1",
             password="mypassw#NW",
-            service_provider=service_provider_entity_1
+            entity=service_provider_entity_1
         )
 
         service_provider_2 = ServiceProvider(
             username="pes",
             password="pespassWwd",
-            service_provider=service_provider_entity_2
+            entity=service_provider_entity_2
         )
 
         service_provider_1.save()
@@ -39,8 +39,11 @@ class DBSetupTestCase(TestCase):
         user_entity.save()
 
         apartment = Apartment(
-
+            name="Apartment for rent",
+            address="Pushkina st., Kolotushkina building"
         )
+
+        apartment.save()
 
         for x in range(0, 10):
             counter = Counter(name="{x}{x}{x}{x}{x}{x}".format(x=x),
@@ -52,5 +55,19 @@ class DBSetupTestCase(TestCase):
                 service_provider_1.counters.add(counter)
             else:
                 service_provider_2.counters.add(counter)
+
+        apartment.service_providers.add(service_provider_1)
+        apartment.service_providers.add(service_provider_2)
+
+        apartment.save()
+
+        user = User(
+            entity=user_entity
+        )
+
+        user.save()
+        user.apartments.add(apartment)
+        user.save()
+
 
 
