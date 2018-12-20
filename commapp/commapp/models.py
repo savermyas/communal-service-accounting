@@ -10,28 +10,27 @@ class UserEntity(models.Model):
     name = models.CharField(max_length=50)
 
 
-class Counters(models.Model):
+class Counter(models.Model):
     name = models.CharField(max_length=50)
     info = models.CharField(max_length=255)
-    previous_value = models.FloatField()
-    current_value = models.FloatField()
+    previous_value = models.FloatField(default=-1)
+    current_value = models.FloatField(default=-1)
 
 
-class ServiceProviders(models.Model):
+class ServiceProvider(models.Model):
     service_provider = models.ForeignKey(ServiceProviderEntity,
                                          on_delete=models.CASCADE)
-    counter = models.ForeignKey(Counters, on_delete=models.CASCADE)
+    counters = models.ManyToManyField(Counter)
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
 
 
-class Apartments(models.Model):
+class Apartment(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=255)
-    service_provider = models.ForeignKey(ServiceProviders,
-                                         on_delete=models.CASCADE)
+    service_providers = models.ManyToManyField(ServiceProvider)
 
 
-class Users(models.Model):
+class User(models.Model):
     user = models.ForeignKey(UserEntity, on_delete=models.CASCADE)
-    apartment = models.ForeignKey(Apartments, on_delete=models.CASCADE)
+    apartments = models.ManyToManyField(Apartment)

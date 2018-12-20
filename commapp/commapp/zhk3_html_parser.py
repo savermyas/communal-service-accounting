@@ -1,5 +1,5 @@
 from html.parser import HTMLParser
-from commapp.counter import Counter
+from commapp.models import Counter
 
 
 class Zhk3HTMLParser(HTMLParser):
