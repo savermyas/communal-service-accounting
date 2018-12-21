@@ -32,6 +32,8 @@ python commapp/manage.py test
 
 # Start server
 ```
+python commapp/manage.py migrate
+python commapp/manage.py loaddata test
 python commapp/manage.py runserver
 ```
 
