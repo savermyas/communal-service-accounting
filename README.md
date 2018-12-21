@@ -35,6 +35,5 @@ python commapp/manage.py test
 python commapp/manage.py runserver
 ```
 
-# Links
-  * [1][https://www.djangoproject.com/]
-  * [2][http://slickgrid.net/]
+[1]: https://www.djangoproject.com
+[2]: http://slickgrid.net
