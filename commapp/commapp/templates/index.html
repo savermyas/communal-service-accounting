@@ -1,0 +1,13 @@
+{% if apartments %}
+<ul>
+    {% for apt in apartments %}
+        {{ apt.name }}
+        {{ apt.address }}
+        {% for sp in apt.service_providers.all %}
+        <li>{{ sp.entity.name }}</li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+{% else %}
+<p>No apartments.</p>
+{% endif %}
