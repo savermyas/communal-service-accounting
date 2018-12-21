@@ -1,13 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="shortcut icon" type="image/ico" href="static/favicon.ico" />
+    <title>My communal services meters</title>
+    <link rel="stylesheet" href="static/slick.grid.css" type="text/css"/>
+    <link rel="stylesheet" href="static/jquery-ui-1.11.3.custom.min.css" type="text/css"/>
+    <link rel="stylesheet" href="static/slick-default-theme.css" type="text/css"/>
+</head>
+<body>
+
 {% if apartments %}
-<ul>
     {% for apt in apartments %}
-        {{ apt.name }}
-        {{ apt.address }}
+        <table name="My apartments">
+            <tr><th>Name</th><th>Address</th></tr>
+            <tr><td>{{ apt.name }}</td> <td>{{ apt.address }}</td></tr>
+        </table>
         {% for sp in apt.service_providers.all %}
-        <li>{{ sp.entity.name }}</li>
+            <li>{{ sp.entity.name }}</li>
         {% endfor %}
-    {% endfor %}
-</ul>
+{% endfor %}
+
+
 {% else %}
 <p>No apartments.</p>
 {% endif %}
+
+<table width="100%">
+    <tr>
+        <td valign="top" width="50%">
+            <div id="myGrid" style="width:600px;height:500px;"></div>
+        </td>
+    </tr>
+</table>
+
+<script src="static/jquery-1.11.2.min.js"></script>
+<script src="static/jquery.event.drag-2.3.0.js"></script>
+
+<script src="static/slick.core.js"></script>
+<script src="static/slick.grid.js"></script>
+
+<script>
+  var grid;
+  var columns = [
+    {id: "title", name: "Title", field: "title"},
+    {id: "duration", name: "Duration", field: "duration"},
+    {id: "%", name: "% Complete", field: "percentComplete"},
+    {id: "start", name: "Start", field: "start"},
+    {id: "finish", name: "Finish", field: "finish"},
+    {id: "effort-driven", name: "Effort Driven", field: "effortDriven"}
+  ];
+  var options = {
+    enableCellNavigation: true,
+    enableColumnReorder: false
+  };
+  $(function () {
+    var data = [];
+    for (var i = 0; i < 500; i++) {
+      data[i] = {
+        title: "Task " + i,
+        duration: "5 days",
+        percentComplete: Math.round(Math.random() * 100),
+        start: "01/01/2009",
+        finish: "01/05/2009",
+        effortDriven: (i % 5 == 0)
+      };
+    }
+    grid = new Slick.Grid("#myGrid", data, columns, options);
+  })
+</script>
+
+</body>
+</html>
